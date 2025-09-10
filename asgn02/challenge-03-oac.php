@@ -41,6 +41,10 @@ class Unicycle extends Bicycle {
   // visibility must match property being overridden
   protected $wheels = 1;
 
+  public function wheelDetails() {
+    return "it has " . $this->wheels . " wheels. <br>";
+  }
+
 }
 
 $trek = new Bicycle;
@@ -65,11 +69,4 @@ $trek->set_weight_lbs(2);
 echo $trek->weight_kg() . "<br />";
 echo $trek->weight_lbs() . "<br />";
 echo "<hr />";
-
-// Will this work?
-// echo "Set weight for Unicycle<br />";
-// $uni->set_weight_kg(1);
-// echo $uni->weight_kg() . "<br />";
-// echo $uni->weight_lbs() . "<br />";
-
 ?>

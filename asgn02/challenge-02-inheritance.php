@@ -1,44 +1,52 @@
 <?php 
 
 class Employee {
-  var $department;
-  var $first_name;
-  var $last_name;
-  var $is_salaried = false;
-  var $is_full_time = true;
+  public $department;
+  public $first_name;
+  public $last_name;
+  private $is_salaried = false;
+  protected $is_full_time = true;
 
-  function fullName() {
+  public function fullName() {
     return $this->first_name . " " . $this->last_name;
   }
 
-  function isFullTime() {
-    return $this->is_full_time;
+  public function isFullTime() {
+    if($this->is_full_time) {
+      return "is full-time";
+    } else {
+      return "is part-time";
+    }
   }
 
-  function isSalaried() {
-    return $this->is_salaried;
+  public function isSalaried() {
+    if($this->is_salaried) {
+      return "is salaried";
+    } else {
+      return "is hourly";
+    }
   }
 }
 
 class Server extends Employee {
-  var $canBartend;
-  var $is_turnhouse_trained;
+  public $canBartend;
+  public $is_turnhouse_trained;
 
-  function canBartend() {
+  public function canBartend() {
     if ($this->canBartend){
-      return $this->fullName() . " can bartend.";
+      return $this->fullName() . " can bartend";
     } else {
-      return $this->fullName() . " cannot bartend.";
+      return $this->fullName() . " cannot bartend";
     }
   }
 }
 
 class LineCook extends Employee {
-  var $position;
-  var $knifeSkills;
+  public $position;
+  public $knifeSkills;
 
-  function getKnifeSkills() { 
-    return $this->knifeSkills . "-level knife skills.";
+  public function getKnifeSkills() { 
+    return $this->knifeSkills . "-level knife skills";
   }
 }
 
@@ -46,8 +54,6 @@ $e = new Employee;
 $e->department = "Front-of-House";
 $e->first_name = "Gracie";
 $e->last_name = "Nesbitt";
-$e->is_salaried = false;
-$e->is_full_time = false;
 
 $bartender = new Server;
 $bartender->department = "Front-of-House";
@@ -62,8 +68,8 @@ $pizzaCam->last_name = "Dumme";
 $pizzaCam->position = "pizza chef";
 $pizzaCam->knifeSkills = "beginner";
 
-echo $e->fullName() . " is an employee. <br>";
-echo "Our server " . $bartender->canBartend() . "<br>";
-echo $pizzaCam->fullName() . " is a " . $pizzaCam->position . " who has " . $pizzaCam->getKnifeSkills() . "<br>";
+echo $e->fullName() . " is an employee who " . $e->isFullTime() . " and " . $e->isSalaried() . ". <br>";
+echo "Our server " . $bartender->canBartend() . ". <br>";
+echo $pizzaCam->fullName() . " is a " . $pizzaCam->position . " who has " . $pizzaCam->getKnifeSkills() . ". <br>";
 
 ?>
