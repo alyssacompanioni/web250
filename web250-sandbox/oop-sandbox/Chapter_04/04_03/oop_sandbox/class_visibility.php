@@ -56,4 +56,8 @@ $student1->tuition = 1000;
 echo $student1->tuition . '<br />';
 echo $student1->tuition_fmt() . '<br />';
 
+
+//public means it can be accessed anywhere outside of the class
+//private means the property can only be used within the class, unless using a setter or getter function
+//protected is a private scope that can be inherited
 ?>
