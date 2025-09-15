@@ -7,11 +7,12 @@ class Bicycle {
   public $brand;
   public $model;
   public $year;
+  public $category; //instance property
   public $description = 'Used bicycle';
   protected $weight_kg = 0.0;
   protected $wheels = 2;
 
-  public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
+  public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX']; //class property
 
   //creates an instance of the class first
   //increments the counter
