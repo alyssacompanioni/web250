@@ -19,4 +19,12 @@ class Student {
 
 }
 
+echo Student::$grades[0] . "<br>";
+echo Student::motto() . "<br>";
+
+//try it - private
+
+echo Student::$total_students . "<br>";
+
+
 ?>
