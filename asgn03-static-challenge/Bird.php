@@ -27,6 +27,10 @@ class Bird {
         $flying_string = static::$flying == "yes" ? "can fly" : "is stuck on the ground";
         return  $flying_string ;
     }
+
+    public static function getEggs() {
+        return static::$egg_num;
+    }
 }
 
 class YellowBelliedFlyCatcher extends Bird {
@@ -37,7 +41,10 @@ class YellowBelliedFlyCatcher extends Bird {
 }
 
 class Kiwi extends Bird {
+    public static $egg_num = "1-2";
     public $name = "kiwi";
     public $diet = "omnivorous";
     public static $flying = "no";
 }
+
+
