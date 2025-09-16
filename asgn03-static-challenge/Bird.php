@@ -3,13 +3,13 @@
 class Bird {
     public static $instance_count = 0;
     public static $egg_num = 0;
+    public static $flying = "yes";
 
     public $habitat;
     public $food;
     public $nesting = "tree";
     public $conservation;
     public $song = "chirp";
-    public $flying = "yes";
 
     public static function create() {
       $class_string = get_called_class();
@@ -18,7 +18,7 @@ class Bird {
       return $obj;
     }
 
-    public function can_fly() {
+    public static function can_fly() {
         // if ( $this->flying == "yes" ) {
         //     $flying_string = "can fly";
         // } else {
@@ -37,7 +37,7 @@ class YellowBelliedFlyCatcher extends Bird {
 }
 
 class Kiwi extends Bird {
-    var $name = "kiwi";
-    var $diet = "omnivorous";
-    var $flying = "no";
+    public $name = "kiwi";
+    public $diet = "omnivorous";
+    public static $flying = "no";
 }
