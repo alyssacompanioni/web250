@@ -4,7 +4,7 @@ class Bird {
   public $commonName;
   public $latinName;
 
-  public function __construct($args = []) {
+  public function __construct(array $args = []) {
     $this->commonName = $args['commonName'] ?? NULL;
     $this->latinName = $args['latinName'] ?? NULL;
   }

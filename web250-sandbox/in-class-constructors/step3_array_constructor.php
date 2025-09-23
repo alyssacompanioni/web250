@@ -30,3 +30,5 @@ $g = new Guitar([
   "price" => 899.95
 ]);
 echo $g->summary();
+
+?>
