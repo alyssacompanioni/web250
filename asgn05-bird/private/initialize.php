@@ -20,6 +20,11 @@
     I have purposely left the autoload class because the code is difficult.
   */
 
+  //Manually loads all files in classes folder with a loop
+  foreach(glob('classes/*.class.php') as $file) {
+    require_once($file);
+  }
+
 
   // Autoload class definitions
   function my_autoload($class) {
