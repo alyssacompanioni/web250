@@ -11,8 +11,11 @@ class Bicycle {
   public float $price;
   public float $weight_kg;
   public int $condition_id;
+
   protected array $CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
+
   protected array $GENDERS = ['Mens', 'Womens', 'Unisex'];
+
   public array $CONDITION_OPTIONS =[
     1 => 'Beat up',
     2 => 'Decent',
@@ -34,24 +37,29 @@ class Bicycle {
     $this->condition_id = $args['condition_id'] ?? 3;
   }
 
-  protected function get_weight_kg() {
-
+  public function weight_kg() {
+    return number_format($this->weight_kg, 2) . ' kg';
   }
 
-  protected function set_weight_kg(float $value) {
-
+  public function set_weight_kg(float $value) {
+    $this->weight_kg = floatval($value);
   }
 
-  protected function get_weight_lbs() {
-    
+  public function get_weight_lbs() {
+    $weight_lbs = floatval($this->weight_kg) * 2.2046226218;
+    return number_format($weight_lbs, 2) . ' lbs';
   }
 
-  protected function set_weight_lbs(float $value) {
-
+  public function set_weight_lbs(float $value) {
+    $this->weight_kg = floatval($value) / 2.2046226218;
   }
 
-  protected function get_condition() {
-
+  public function get_condition() {
+    if($this->condition_id > 0) {
+      return self::CONDITION_OPTIONS[$this->condition_id];
+    } else {
+      return "Unknown";
+    }
   }
 }
 
