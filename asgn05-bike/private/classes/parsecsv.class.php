@@ -2,6 +2,8 @@
 
 class ParseCSV {
 
+  //How: The delimiter variable makes it easy to change the delimiter used by the parse() function in the case of a CSV file that uses a different delimiter
+  //Why: Allows for more efficiency to be able to use different delimiters across different CSV files without having to change the code of the parse() function directly. Allows parse() to work for CSV files that use different delimiters. 
   public static $delimiter = ',';
 
   private $filename;
