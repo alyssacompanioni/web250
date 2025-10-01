@@ -21,7 +21,7 @@ class Bicycle {
     5 => 'Like New'
   ];
 
-  protected function __construct(array $args) {
+  public function __construct(array $args) {
     $this->brand = $args['brand'] ?? '';
     $this->model = $args['model'] ?? '';
     $this->year = $args['year'] ?? '';
@@ -34,24 +34,24 @@ class Bicycle {
     $this->condition_id = $args['condition_id'] ?? 0;
   }
 
-  protected function get_weight_kg() {
+  public function get_weight_kg() {
     return number_format($this->weight_kg, 2) . ' kg';
   }
 
-  protected function set_weight_kg(float $value) {
+  public function set_weight_kg(float $value) {
     $this->weight_kg = floatval($value);
   }
 
-  protected function get_weight_lbs() {
+  public function get_weight_lbs() {
     $weight_lbs = floatval($this->weight_kg) * 2.2046226218;
     return number_format($weight_lbs, 2) . ' lbs';
   }
 
-  protected function set_weight_lbs(float $value) {
+  public function set_weight_lbs(float $value) {
     $this->weight_kg = floatval($value) / 2.2046226218;
   }
 
-  protected function get_condition() {
+  public function get_condition() {
     if($this->condition_id > 0) {
       return self::CONDITION_OPTIONS[$this->condition_id];
     } else
