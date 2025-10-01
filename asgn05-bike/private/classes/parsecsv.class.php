@@ -4,7 +4,7 @@ class ParseCSV {
 
   public static $delimiter = ',';
 
-  public $filename;
+  private $filename;
   private $header;
   private $data=[];
   private $row_count = 0;

@@ -11,9 +11,9 @@ class Bicycle {
   public float $price;
   public float $weight_kg;
   public int $condition_id;
-  protected array $CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
-  protected array $GENDERS = ['Mens', 'Womens', 'Unisex'];
-  public array $CONDITION_OPTIONS =[
+  public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
+  public const GENDERS = ['Mens', 'Womens', 'Unisex'];
+  protected const CONDITION_OPTIONS =[
     1 => 'Beat up',
     2 => 'Decent',
     3 => 'Good', 
