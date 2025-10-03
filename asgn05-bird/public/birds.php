@@ -36,27 +36,22 @@ include(SHARED_PATH . '/public_header.php');
   foreach ($bird_array as $args) {
     $bird = new Bird($args);
   ?>
-    /*
+    <!-- /*
     Create a table row that lists out all of the bird
     properties.
 
-    */
+    */ -->
 
     <tr>
       <td><?php echo h($bird->common_name); ?></td>
       <td><?php echo h($bird->habitat); ?></td>
       <td><?php echo h($bird->food); ?></td>
       <td><?php echo h($bird->nest_placement); ?></td>
+      <td><?php echo h($bird->behavior); ?></td>
       <td><?php echo h($bird->get_conservation()); ?></td>
       <td><?php echo h($bird->backyard_tips); ?></td>
     </tr>
   <?php } ?>
 </table>
-
-
-?>
-
-</table>
-
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
