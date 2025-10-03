@@ -12,7 +12,6 @@ class Bicycle {
   public float $weight_kg;
   public int $condition_id;
 
-<<<<<<< HEAD
   public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
 
   public const GENDERS = ['Mens', 'Womens', 'Unisex'];
@@ -20,13 +19,6 @@ class Bicycle {
 //This protected property is accessed with getter function, get_condition_id() as shown below
 //By associating the qualitative conditions with a numerical id, the developer of the website can easily change the string values associated with the condition_id without altering the functionality of the website
   protected const CONDITION_OPTIONS =[
-=======
-  protected array $CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
-
-  protected array $GENDERS = ['Mens', 'Womens', 'Unisex'];
-
-  public array $CONDITION_OPTIONS =[
->>>>>>> asgn05-bird
     1 => 'Beat up',
     2 => 'Decent',
     3 => 'Good', 
@@ -47,11 +39,7 @@ class Bicycle {
     $this->condition_id = $args['condition_id'] ?? 0;
   }
 
-<<<<<<< HEAD
   public function get_weight_kg() {
-=======
-  public function get_weight_kg() {
->>>>>>> asgn05-bird
     return number_format($this->weight_kg, 2) . ' kg';
   }
 
@@ -68,7 +56,6 @@ class Bicycle {
     $this->weight_kg = floatval($value) / 2.2046226218;
   }
 
-<<<<<<< HEAD
   //This is a "getter function" that returns the string value associated with the numerical condition_id. 
   //This utilization method allows the developer to easily change the string values associated with the condition_id without altering the functionality
   public function get_condition() {
@@ -76,14 +63,6 @@ class Bicycle {
       return self::CONDITION_OPTIONS[$this->condition_id];
     } else
       return "Unknown";
-=======
-  public function get_condition() {
-    if($this->condition_id > 0) {
-      return self::CONDITION_OPTIONS[$this->condition_id];
-    } else {
-      return "Unknown";
-    }
->>>>>>> asgn05-bird
   }
 }
 

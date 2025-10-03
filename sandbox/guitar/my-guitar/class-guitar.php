@@ -46,5 +46,7 @@ echo $martin->description();
 
 echo "<br>";
 
+// var_dump($telecaster);   a test for xdebug debugger 
+
 
 // http://localhost/web250-sandbox/guitar/my-guitar/class-guitar.php
