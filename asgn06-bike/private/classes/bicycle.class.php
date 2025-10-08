@@ -1,11 +1,7 @@
 <?php
 
-class Bicycle extends DatabaseObject {
+class Bicycle {
 
-  static protected $table_name = 'bicycles';
-  static protected $db_columns = ['id', 'brand', 'model', 'year', 'category', 'color', 'gender', 'price', 'weight_kg', 'condition_id', 'description'];
-
-  public $id;
   public $brand;
   public $model;
   public $year;
@@ -14,8 +10,8 @@ class Bicycle extends DatabaseObject {
   public $description;
   public $gender;
   public $price;
-  public $weight_kg;
-  public $condition_id;
+  protected $weight_kg;
+  protected $condition_id;
 
   public const CATEGORIES = ['Road', 'Mountain', 'Hybrid', 'Cruiser', 'City', 'BMX'];
 
@@ -50,9 +46,6 @@ class Bicycle extends DatabaseObject {
     // }
   }
 
-  public function name() {
-    return "{$this->brand} {$this->model} {$this->year}";
-  }
   public function weight_kg() {
     return number_format($this->weight_kg, 2) . ' kg';
   }
@@ -77,19 +70,6 @@ class Bicycle extends DatabaseObject {
       return "Unknown";
     }
   }
-
-  protected function validate() {
-    $this->errors = [];
-
-    if(is_blank($this->brand)) {
-      $this->errors[] = "Brand cannot be blank.";
-    }
-    if(is_blank($this->model)) {
-      $this->errors[] = "Model cannot be blank.";
-    }
-    return $this->errors;
-  }
-
 
 }
 
