@@ -54,4 +54,15 @@ include(SHARED_PATH . '/public_header.php');
   <?php } ?>
 </table>
 
+<?php
+
+$sql = "SELECT * FROM birds";
+$result = $database->query($sql);
+$row = $result->fetch_assoc();
+$result->free();
+
+echo "Common Name: " . $row['common_name'];
+
+?>
+
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
