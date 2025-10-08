@@ -16,7 +16,7 @@ define("DB_NAME", "chain_gang");
 //siteground password: P@ssword-1234
 
 // define("DB_SERVER", "localhost");
-// define("DB_USER", "uvcbohvqgijej");
+// define("DB_USER", "usxmkjpb9syrn");
 // define("DB_PASS", "P@ssword-1234");
-// define("DB_NAME", "dbax9gefjzpc2j");
+// define("DB_NAME", "dbeutq9qmnrj61");
 ?>
