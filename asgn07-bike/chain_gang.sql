@@ -1,7 +1,3 @@
-DROP DATABASE IF EXISTS chain_gang;
-CREATE DATABASE chain_gang;
-USE chain_gang;
-
 DROP TABLE IF EXISTS `admins`;
 
 DROP TABLE IF EXISTS `bicycles`;
