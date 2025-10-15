@@ -40,3 +40,19 @@ table tr td, table tr th {
   border: 1px solid #000;
   padding: 3px;
 }
+
+dl {
+  clear: both;
+  height: 1em;
+  margin-bottom: 1em;
+}
+
+dl dt {
+  float: left;
+  width: 100px;
+  font-weight: bold;
+}
+
+dl dd {
+  float: left;
+}

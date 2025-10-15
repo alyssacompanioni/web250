@@ -1,8 +1,8 @@
 <?php
 require_once('../private/initialize.php');
 $page_title = 'Sightings';
-include(SHARED_PATH . '/public_header.php');
-?>
+?> 
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
