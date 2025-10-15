@@ -7,11 +7,6 @@ include(SHARED_PATH . '/public_header.php');
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
 
-<!-- /* 
-  Create a table. The header should reflect the headings in the wnc-birds.csv class.
-  Use a table border of 1 to make the display easier to read.
-*/ -->
-
 <table id="inventory">
   <tr>
     <th>Common Name</th>
@@ -24,23 +19,12 @@ include(SHARED_PATH . '/public_header.php');
   </tr>
 
   <?php
-
   $parser = new ParseCSV(PRIVATE_PATH . '/wnc-birds.csv');
   $bird_array = $parser->parse();
-
-  /*
-  Create a foreach array using $bird_array as $args
-  Create a new instance of $bird
-*/
 
   foreach ($bird_array as $args) {
     $bird = new Bird($args);
   ?>
-    <!-- /*
-    Create a table row that lists out all of the bird
-    properties.
-
-    */ -->
 
     <tr>
       <td><?php echo h($bird->common_name); ?></td>
@@ -55,14 +39,12 @@ include(SHARED_PATH . '/public_header.php');
 </table>
 
 <?php
-
 $sql = "SELECT * FROM birds";
 $result = $database->query($sql);
 $row = $result->fetch_assoc();
 $result->free();
 
 echo "Common Name: " . $row['common_name'];
-
 ?>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

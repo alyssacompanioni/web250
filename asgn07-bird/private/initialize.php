@@ -16,22 +16,15 @@
   $public_end = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
   $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
   define("WWW_ROOT", $doc_root);
- 
 
   require_once('functions.php');
   require_once('db_credentials.php');
   require_once('database_functions.php');
-  
-  /*
-    You can list the required classes manually or use the autoload class.
-    I have purposely left the autoload class because the code is difficult.
-  */
 
   //Manually loads all files in classes folder with a loop
   foreach(glob(__DIR__ . '/classes/*.class.php') as $file) {
     require_once($file);
   }
-
 
   // Autoload class definitions
   function my_autoload($class) {
