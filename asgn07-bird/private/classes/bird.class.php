@@ -8,6 +8,19 @@ class Bird {
   static public function set_database($database) {
     self::$database = $database;
   } 
+
+  static public function find_by_sql($sql){
+    $result = self::$database->query($sql);
+    if(!$result) {
+      exit("Database query failed");
+    } 
+    return $result;
+  }
+
+  static public function find_all() {
+    $sql = "SELECT * FROM birds";
+    return self::find_by_sql($sql);
+  }
   //END of ACTIVE RECORD CODE
 
   public string $common_name;
