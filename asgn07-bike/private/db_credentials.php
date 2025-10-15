@@ -15,3 +15,5 @@ define("DB_NAME", "chain_gang");
 // define('DB_USER', 'umy8becxgkrxf');
 // define('DB_PASS', 'P@ssword-1234');
 // define('DB_NAME', 'db4tr7crgwbcis');
+
+?>

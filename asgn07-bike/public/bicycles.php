@@ -28,12 +28,11 @@
 
 <?php
 
-$parser = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
-$bike_array = $parser->parse();
+$bikes = Bicycle::find_all();
 
 ?>
-      <?php foreach($bike_array as $args) { ?>
-        <?php $bike = new Bicycle($args); ?>
+      <?php foreach($bikes as $bike) { ?>
+  
       <tr>
         <td><?php echo h($bike->brand); ?></td>
         <td><?php echo h($bike->model); ?></td>
@@ -48,19 +47,6 @@ $bike_array = $parser->parse();
       <?php } ?>
 
     </table>
-
-<?php
-
-$sql = "SELECT * FROM bicycles";
-$result = $database->query($sql);
-$row = $result->fetch_assoc();
-$result->free();
-
-echo "BRAND: " . $row['brand'];
-
-
-
-?>
 
   </div>
 
