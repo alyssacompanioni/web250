@@ -44,7 +44,7 @@ $bikes = Bicycle::find_all();
         <td><?php echo h($bike->weight_kg()) . ' / ' . h($bike->weight_lbs()); ?></td>
         <td><?php echo h($bike->condition()); ?></td>
         <td><?php echo h(money_format('$%i', $bike->price)); ?></td>
-        <td><a href="detail.php?id=<?php echo $bike->id; ?>">View</td>
+        <td><a href="detail.php?id=<?php echo h($bike->id); ?>">View</td>
       </tr>
       <?php } ?>
 

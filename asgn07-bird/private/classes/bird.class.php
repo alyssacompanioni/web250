@@ -51,6 +51,7 @@ class Bird {
   }
   //END of ACTIVE RECORD CODE
 
+  public $id;
   public string $common_name;
   public string $habitat;
   public string $food;
@@ -82,6 +83,10 @@ class Bird {
     } else {
       return "Unknown";
     }
+  }
+
+  public function name() {
+    return "{$this->common_name}";
   }
 }
 

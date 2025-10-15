@@ -14,6 +14,7 @@ include(SHARED_PATH . '/public_header.php');
     <th>Food</th>
     <th>Conservation Level</th>
     <th>Backyard Tips</th>
+    <th>&nbsp;</th>
   </tr>
 
   <?php
@@ -28,6 +29,7 @@ include(SHARED_PATH . '/public_header.php');
       <td><?php echo h($bird->food); ?></td>
       <td><?php echo h($bird->get_conservation()); ?></td>
       <td><?php echo h($bird->backyard_tips); ?></td>
+      <td><a href="detail.php?id=<?php echo h($bird->id); ?>">View</td>
     </tr>
   <?php } ?>
 </table>
