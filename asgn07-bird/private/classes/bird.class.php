@@ -14,7 +14,23 @@ class Bird {
     if(!$result) {
       exit("Database query failed");
     } 
-    return $result;
+    //results into objects:
+    $object_array = [];
+    while($record = $result->fetch_assoc()) {
+      $object_array[] = self::instantiate($record);
+    }
+    $result->free();
+    return $object_array;
+  }
+
+  static protected function instantiate($record) {
+    $object = new self;
+    foreach($record as $property => $value) {
+      if(property_exists($object, $property)) {
+        $object->$property = $value;
+      }
+    }
+    return $object;
   }
 
   static public function find_all() {
@@ -38,7 +54,7 @@ class Bird {
     4 => 'Extinct'
   ];
  
-  public function __construct(array $args) {
+  public function __construct($args=[]) {
     $this->common_name = $args['common_name'] ?? '';
     $this->habitat = $args['habitat'] ?? '';
     $this->food = $args['food'] ?? '';
