@@ -2,6 +2,14 @@
 
 class Bird {
 
+  //START of ACTIVE RECORD CODE
+  static protected $database;
+
+  static public function set_database($database) {
+    self::$database = $database;
+  } 
+  //END of ACTIVE RECORD CODE
+
   public string $common_name;
   public string $habitat;
   public string $food;
