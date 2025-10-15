@@ -37,6 +37,18 @@ class Bird {
     $sql = "SELECT * FROM birds";
     return self::find_by_sql($sql);
   }
+
+  static public function find_by_id($id) {
+    $sql = "SELECT * FROM birds ";
+    $sql .= "WHERE id='" . self::$database->escape_string($id) . "'";
+    $obj_array = self::find_by_sql($sql);
+    if(!empty($obj_array)) {
+      return array_shift($obj_array);
+    }  
+    else {
+      return false;
+    }
+  }
   //END of ACTIVE RECORD CODE
 
   public string $common_name;
