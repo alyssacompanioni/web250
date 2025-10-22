@@ -23,6 +23,8 @@ class Bicycle {
     return $object_array;
   }
 
+  //instantiate creates and returns an instance using the property/value information in record
+  //no instance, so must be static
   static protected function instantiate($record) {
     $object = new self;
     // Could manually assign values to properties
@@ -35,6 +37,7 @@ class Bicycle {
     return $object;
   }
 
+  //no instance, so must be static
   static public function find_all() {
     $sql = "SELECT * FROM bicycles";
     return self::find_by_sql($sql);
@@ -49,6 +52,30 @@ class Bicycle {
     } else {
       return false;
     }
+  }
+
+  //instance method
+  //returns true/false depending on if query is successful
+  public function create() {
+    $sql = "INSERT INTO bicycles (";
+    $sql .= "brand, model, year, category, color, gender, price, weight_kg, condition_id, description";
+    $sql .= ") VALUES (";
+    $sql .= "'" . $this->brand . "', ";
+    $sql .= "'" . $this->model . "', ";
+    $sql .= "'" . $this->year . "', ";
+    $sql .= "'" . $this->category . "', ";
+    $sql .= "'" . $this->color . "', ";
+    $sql .= "'" . $this->gender . "', ";
+    $sql .= "'" . $this->price . "', ";
+    $sql .= "'" . $this->weight_kg . "', ";
+    $sql .= "'" . $this->condition_id . "', ";
+    $sql .= "'" . $this->description . "'";
+    $sql .= ")";
+    $result = self::$database->query($sql);
+    if($result) {
+      $this->id = self::$database->insert_id;
+    }
+    return $result;
   }
 
   // END of ACTIVE RECORD CODE
@@ -99,7 +126,7 @@ class Bicycle {
   }
 
   public function name() {
-    return "{$this-> brand} {$this->model} {$this->year}";
+    return "{$this->brand} {$this->model} {$this->year}";
   }
 
   public function weight_kg() {
