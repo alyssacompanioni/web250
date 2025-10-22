@@ -58,7 +58,7 @@ class Bicycle {
   //instance method
   //returns true/false depending on if query is successful
   public function create() {
-    $attributes = $this->attributes();
+    $attributes = $this->sanitized_attributes();
     $sql = "INSERT INTO bicycles (";
     //$sql .= join(', ', self::$db_columns);
     $sql .= join(', ', array_keys($attributes));
@@ -80,6 +80,14 @@ class Bicycle {
       $attributes[$column] = $this->$column;      
     }
     return $attributes;
+  }
+
+  protected function sanitized_attributes() {
+    $sanitized = [];
+    foreach($this->attributes() as $key => $value) {
+      $sanitized[$key] = self::$database->escape_string($value);
+    }
+    return $sanitized;
   }
 
   // END of ACTIVE RECORD CODE
