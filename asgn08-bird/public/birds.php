@@ -7,7 +7,7 @@ $page_title = 'Sightings';
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
 <br>
-<p><a href="new.php">Add a Bird Sighting</a></p>
+<p><a class="action" href="<?php echo url_for('/new.php'); ?>">Add a Bird Sighting</a></p>
 
 <table id="inventory">
   <tr>
@@ -31,7 +31,9 @@ $page_title = 'Sightings';
       <td><?php echo h($bird->food); ?></td>
       <td><?php echo h($bird->get_conservation()); ?></td>
       <td><?php echo h($bird->backyard_tips); ?></td>
-      <td><a href="detail.php?id=<?php echo h($bird->id); ?>">View</td>
+      <td><a class="action" href="<?php echo url_for('/show.php?id=' . h(u($bird->id))); ?>">View</td>
+      <td><a class="action" href="<?php echo url_for('/edit.php?id=' . h(u($bird->id))); ?>">Edit</td>
+      <td><a class="action" href="<?php echo url_for('/delete.php?id=' . h(u($bird->id))); ?>">Delete</td>
     </tr>
   <?php } ?>
 </table>

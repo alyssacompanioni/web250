@@ -8,9 +8,62 @@ require_once('../private/initialize.php');
   Be sure to include the display_errors() function.
 */
 
-<?php $page_title = 'Edit Bird'; ?>
+if (!isset($_GET['id'])) {
+  redirect_to(url_for('/index.php'));
+}
+$id = $_GET['id'];
+
+$bird = Bird::find_by_id($id);
+if ($bird == false) {
+  redirect_to(url_for('/index.php'));
+}
+
+if (is_post_request()) {
+
+  // Save record using post parameters
+  $args = [];
+  $args['common_name'] = $_POST['common_name'] ?? NULL;
+  $args['habitat'] = $_POST['habitat'] ?? NULL;
+  $args['food'] = $_POST['food'] ?? NULL;
+  $args['conservation_id'] = $_POST['conservation_id'] ?? NULL;
+  $args['backyard_tips'] = $_POST['backyard_tips'] ?? NULL;
+
+  $bird->merge_attributes($args);
+  $result = $bird->save();
+
+  if ($result === true) {
+    $_SESSION['message'] = 'The bird sighting was updated successfully.';
+    redirect_to(url_for('/show.php?id=' . $id));
+  } else {
+    // show errors
+  }
+} else {
+
+  // display the form
+
+}
+
+?>
+
+<?php $page_title = 'Edit Bird: ' . h($bird->name()); ; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
+<div id="content">
 
+  <a class="back-link" href="<?php echo url_for('/birds.php'); ?>">&laquo; Back to List</a>
+
+  <div class="birdEdit">
+    <h1>Edit Bird</h1>
+
+    <form action="<?php echo url_for('/edit.php?id=' . h(u($id))); ?>" method="post">
+
+      <?php include('form_fields.php'); ?>
+
+      <div id="operations">
+        <input type="submit" value="Edit Bird">
+      </div>
+    </form>
+  </div>
+</div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

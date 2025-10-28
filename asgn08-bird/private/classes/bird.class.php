@@ -51,8 +51,8 @@ class Bird {
     }
   }
 
-  public function create() {
-    $attributes = $this->attributes();
+  protected function create() {
+    $attributes = $this->sanitized_attributes();
     $sql = "INSERT INTO birds (";
     $sql .= join(', ', array_keys($attributes));
     $sql .= ") VALUES ('";
@@ -65,6 +65,36 @@ class Bird {
     return $result;
   }
 
+  protected function update() {
+    $attributes = $this->sanitized_attributes();
+    $attribute_pairs = [];
+    foreach($attributes as $key => $value) {
+      $attribute_pairs[] = "{$key}='{$value}'";
+    }
+    $sql = "UPDATE birds SET ";
+    $sql .= join(', ', $attribute_pairs);
+    $sql .= " WHERE id='" . self::$database->escape_string($this->id) . "' ";
+    $sql.= "LIMIT 1";
+    $result = self::$database->query($sql);
+    return $result;
+  }
+
+  public function save() {
+    if(isset($this->id)) {
+      return $this->update();
+    } else {
+      return $this->create();
+    }
+  }
+
+  public function merge_attributes($args) {
+    foreach($args as $key=>$value) {
+      if(property_exists($this, $key) && !is_null($value)){
+        $this->$key = $value;
+      }
+    }
+  }
+
   public function attributes() {
     $attributes = [];
     foreach(self::$db_columns as $column) {
@@ -72,6 +102,14 @@ class Bird {
       $attributes[$column] = $this->$column;
     }
     return $attributes;
+  }
+
+  protected function sanitized_attributes() {
+    $sanitized = [];
+    foreach($this->attributes() as $key=> $value) {
+      $sanitized[$key] = self::$database->escape_string($value);
+    }
+    return $sanitized;
   }
   //END of ACTIVE RECORD CODE
 
@@ -82,7 +120,7 @@ class Bird {
   public int $conservation_id;
   public string $backyard_tips;
 
-  protected CONST CONSERVATION_OPTIONS = [
+  public CONST CONSERVATION_OPTIONS = [
     1 => 'Low concern',
     2 => 'Moderate concern',
     3 => 'Extreme concern',
