@@ -17,6 +17,8 @@ $page_title = 'Sightings';
     <th>Conservation Level</th>
     <th>Backyard Tips</th>
     <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
   </tr>
 
   <?php
