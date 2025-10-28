@@ -6,6 +6,8 @@ $page_title = 'Sightings';
 
 <h2>Bird inventory</h2>
 <p>This is a short list -- start your birding!</p>
+<br>
+<p><a href="new.php">Add a Bird Sighting</a></p>
 
 <table id="inventory">
   <tr>
