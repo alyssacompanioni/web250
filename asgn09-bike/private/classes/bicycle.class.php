@@ -62,14 +62,15 @@ class Bicycle
     }
   }
 
-  protected function validate() {
+  protected function validate()
+  {
     //resets $errors array
     $this->errors = [];
 
-    if(is_blank($this->brand)) {
+    if (is_blank($this->brand)) {
       $this->errors[] = "Brand cannot be blank.";
     }
-    if(is_blank($this->model)) {
+    if (is_blank($this->model)) {
       $this->errors[] = "Model cannot be blank.";
     }
     return $this->errors;
@@ -157,6 +158,19 @@ class Bicycle
       $sanitized[$key] = self::$database->escape_string($value);
     }
     return $sanitized;
+  }
+
+  public function delete() {
+    $sql = "DELETE FROM bicycles ";
+    $sql .= "WHERE id='" . self::$database->escape_string($this->id) . "' ";
+    $sql .= "LIMIT 1";
+    $result = self::$database->query($sql);
+    return $result;
+
+    //After deleting, the instance of the object will still exist even though the database record does not
+    //This can be useful, as in:
+    //  echo $user->first_name . " was deleted.";
+    //but, for example, we can't call $user->update() after calling $user->delete()
   }
 
   // END of ACTIVE RECORD CODE
