@@ -4,7 +4,7 @@ class DatabaseObject {
 
   static protected $database;
   static protected $table_name = "";
-  static protected $columns = [];
+  static protected $db_columns = [];
   public $errors = [];
 
   static public function set_database($database) {
@@ -100,7 +100,6 @@ class DatabaseObject {
   }
 
   public function save() {
-    // A new record will not have an ID yet
     if(isset($this->id)) {
       return $this->update();
     } else {
@@ -116,7 +115,6 @@ class DatabaseObject {
     }
   }
 
-  // Properties which have database columns, excluding ID
   public function attributes() {
     $attributes = [];
     foreach(static::$db_columns as $column) {
