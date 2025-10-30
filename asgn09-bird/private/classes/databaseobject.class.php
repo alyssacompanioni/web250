@@ -5,7 +5,7 @@ class DatabaseObject {
   static protected $database;
   static protected $table_name = "";
   static protected $db_columns = [];
-  public $errors = [];
+  protected $errors = [];
 
   static public function set_database($database) {
     self::$database = $database;
@@ -146,6 +146,10 @@ class DatabaseObject {
     // but, for example, we can't call $user->update() after
     // calling $user->delete().
   }
+
+  public function get_errors() {
+    return $this->errors;
+}
 
 }
 

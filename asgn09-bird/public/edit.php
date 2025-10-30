@@ -46,7 +46,9 @@ if (is_post_request()) {
   <a class="back-link" href="<?php echo url_for('/birds.php'); ?>">&laquo; Back to List</a>
 
   <div class="birdEdit">
-    <h1>Edit Bird</h1>
+    <h1>Edit Bird: <?php echo $this->name(); ?></h1>
+
+    <?php echo display_errors($bird->get_errors()); ?>
 
     <form action="<?php echo url_for('/edit.php?id=' . h(u($id))); ?>" method="post">
 

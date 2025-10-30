@@ -6,7 +6,7 @@ if(is_post_request()) {
 
   // Create a record using the POST parameters:
   $args = $_POST['bird'];
-  
+
   //Create new instance and insert into database:
   $bird = new Bird($args);
   $result = $bird->save();
@@ -33,6 +33,8 @@ include(SHARED_PATH . '/public_header.php');
 
   <div class="bird new">
     <h1>Create Bird</h1>
+
+    <?php echo display_errors($bird->get_errors()); ?>
 
     <form action="<?php echo url_for('/new.php'); ?>" method="post">
 

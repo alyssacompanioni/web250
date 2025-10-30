@@ -20,11 +20,8 @@
   require_once('functions.php');
   require_once('db_credentials.php');
   require_once('database_functions.php');
-
-  //Manually loads all files in classes folder with a loop
-  foreach(glob(__DIR__ . '/classes/*.class.php') as $file) {
-    require_once($file);
-  }
+  require_once('status_error_functions.php');
+  require_once('validation_functions.php');
 
   // Autoload class definitions
   function my_autoload($class) {
@@ -33,6 +30,11 @@
     }
   }
   spl_autoload_register('my_autoload');
+
+   //Manually loads all files in classes folder with a loop
+  foreach(glob(__DIR__ . '/classes/*.class.php') as $file) {
+    require_once($file);
+  }
 
   $database = db_connect();
   DatabaseObject::set_database($database);
