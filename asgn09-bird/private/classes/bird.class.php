@@ -3,7 +3,7 @@
 class Bird extends DatabaseObject {
 
   static protected $table_name = 'birds';
-  static protected $db_columns = ['id', 'common_name', 'habitat', 'food', 'conservation_id', 'backyard_tips'];
+  static protected $db_columns = ['common_name', 'habitat', 'food', 'conservation_id', 'backyard_tips'];
 
   protected function validate() {
     $this->errors = [];
