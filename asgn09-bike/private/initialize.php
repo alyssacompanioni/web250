@@ -47,11 +47,6 @@ require_once('validation_functions.php');
 //   require_once($file);
 // }
 
-foreach (glob(__DIR__ . '/classes/*.class.php') as $file) {
-  require_once($file);
-}
-
-
 // Autoload class definitions
 //Use: include('classes/' . strtolower($class) . '.class.php');
 // to ensure classes are loaded properly
@@ -63,7 +58,11 @@ function my_autoload($class)
 }
 spl_autoload_register('my_autoload');
 
+foreach (glob(__DIR__ . '/classes/*.class.php') as $file) {
+  require_once($file);
+}
+
 $database = db_connect();
-Bicycle::set_database($database);
+DatabaseObject::set_database($database);
 
 ?>
