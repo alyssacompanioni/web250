@@ -34,7 +34,7 @@ if(is_post_request()) {
   <div class="admin new">
     <h1>Create Admin</h1>
 
-    <?php echo display_errors($admin->errors); ?>
+    <?php echo display_errors($admin->get_errors()); ?>
 
     <form action="<?php echo url_for('/staff/admins/new.php'); ?>" method="post">
 
