@@ -43,7 +43,7 @@ if(is_post_request()) {
   <div class="admin edit">
     <h1>Edit Admin</h1>
 
-    <?php echo display_errors($admin->errors); ?>
+    <?php echo display_errors($admin->get_errors()); ?>
 
     <form action="<?php echo url_for('/staff/admins/edit.php?id=' . h(u($id))); ?>" method="post">
 
