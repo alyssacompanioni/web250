@@ -16,7 +16,7 @@ class Member extends DatabaseObject {
   protected $password_required = true;
   public $member_type = 'm';
   
-  public function construct($args[]) {
+  public function construct($args=[]) {
     $this->first_name = $args['first_name'] ?? '';
     $this->last_name = $args['last_name'] ?? '';
     $this->email = $args['email'] ?? '';
@@ -39,7 +39,7 @@ class Member extends DatabaseObject {
   }
 
   protected function create() {
-    $this->set_hashed_password;
+    $this->set_hashed_password();
     return parent::create();
   }
 
