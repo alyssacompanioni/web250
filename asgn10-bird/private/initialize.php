@@ -6,8 +6,6 @@
 
   ob_start(); // turn on output buffering
 
-  // session_start(); // turn on sessions if needed
-
   define("PRIVATE_PATH", dirname(__FILE__));
   define("PROJECT_PATH", dirname(PRIVATE_PATH));
   define("PUBLIC_PATH", PROJECT_PATH . '/public');
@@ -38,5 +36,6 @@
 
   $database = db_connect();
   DatabaseObject::set_database($database);
+  $session = new Session;
 
 ?>

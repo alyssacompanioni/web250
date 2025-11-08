@@ -22,7 +22,8 @@ if (is_post_request()) {
     $member = Member::find_by_username($username);
     //test if member is found AND password is correct
     if($member != false && $member->verify_password($password)) {
-      //Mar member as logged in
+      //Mark member as logged in
+      $session->login($member);
       redirect_to(url_for('/members/index.php'));
     } else {
       //username not found or password does not match
