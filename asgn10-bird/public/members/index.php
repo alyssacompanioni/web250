@@ -23,8 +23,8 @@ $members = Member::find_all();
         <th>First name</th>
         <th>Last name</th>
         <th>Email</th>
+        <th>Member Type</th>
         <th>Username</th>
-        <!-- <th>Member Type</th> -->
         <th>&nbsp;</th>
         <th>&nbsp;</th>
         <th>&nbsp;</th>
@@ -36,6 +36,7 @@ $members = Member::find_all();
           <td><?php echo h($member->first_name); ?></td>
           <td><?php echo h($member->last_name); ?></td>
           <td><?php echo h($member->email); ?></td>
+          <td><?php if($member->member_type === 'm') { echo "Member"; } else { echo "Admin";} ?></td>
           <td><?php echo h($member->username); ?></td>
           <td><a class="action" href="<?php echo url_for('/members/show.php?id=' . h(u($member->id))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/members/edit.php?id=' . h(u($member->id))); ?>">Edit</a></td>
