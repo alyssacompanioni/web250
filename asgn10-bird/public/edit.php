@@ -1,6 +1,7 @@
 <?php
 
 require_once('../private/initialize.php');
+require_login();
 
 /* 
   Use the bicycles/staff/edit.php file as a guide 
