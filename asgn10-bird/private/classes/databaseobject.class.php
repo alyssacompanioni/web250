@@ -5,7 +5,7 @@ class DatabaseObject {
   static protected $database;
   static protected $table_name = "";
   static protected $db_columns = [];
-  protected $errors = [];
+  public $errors = [];
 
   static public function set_database($database) {
     self::$database = $database;
