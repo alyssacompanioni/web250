@@ -19,9 +19,9 @@
         <li><a href="<?php echo url_for('/about.php'); ?>">About WNC Birds</a></li>
         <?php if ($session->is_logged_in()) { ?>
           <li><a href="<?php echo url_for('/birds.php'); ?>">Bird Sightings</a></li>
-          <li><a href="<?php echo url_for('/members/logout.php'); ?>">Log Out</a></li>
+          <li><a href="<?php echo url_for('/logout.php'); ?>">Log Out</a></li>
         <?php } else { ?> 
-           <li><a href="<?php echo url_for('/members/login.php'); ?>">Log In</a></li>
+           <li><a href="<?php echo url_for('/login.php'); ?>">Log In</a></li>
         <?php } ?>
       </ul>
     </navigation>
