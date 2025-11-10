@@ -5,6 +5,6 @@
 ?>
 
     <h2>About</h2>
-    <p>This site lists some of the common birds of Western NC.</p>
+    <p>This site tracks member sightings of birds in Western NC.</p>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

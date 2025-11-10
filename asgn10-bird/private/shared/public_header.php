@@ -16,9 +16,13 @@
     <h1>Welcome to WNC Bird Sightings!</h1>
     <navigation>
       <ul>
+        <li><a href="<?php echo url_for('/about.php'); ?>">About WNC Birds</a></li>
+        <li><a href="<?php echo url_for('/index.php'); ?>">WNC Birds</a></li>
         <?php if ($session->is_logged_in()) { ?>
-          <li><a href="<?php echo url_for('/index.php'); ?>">WNC Birds</a></li>
+          <li><a href="<?php echo url_for('/birds.php'); ?>">Bird Sightings</a></li>
           <li><a href="<?php echo url_for('/members/logout.php'); ?>">Log Out</a></li>
+        <?php } else { ?> 
+           <li><a href="<?php echo url_for('/members/login.php'); ?>">Log In</a></li>
         <?php } ?>
       </ul>
     </navigation>
