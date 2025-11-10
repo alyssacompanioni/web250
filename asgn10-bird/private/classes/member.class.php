@@ -35,7 +35,7 @@ class Member extends DatabaseObject {
   }
 
   public function verify_password($password) {
-    return password_verify($this->password, $this->hashed_password);
+    return password_verify($password, $this->hashed_password);
   }
 
   protected function create() {
