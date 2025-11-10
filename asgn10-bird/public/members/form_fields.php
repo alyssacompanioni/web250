@@ -1,7 +1,7 @@
 <?php
 // prevents this code from being loaded directly in the browser
 // or without first setting the necessary object
-if(!isset($member)) {
+if (!isset($member)) {
   redirect_to(url_for('/members/index.php'));
 }
 ?>
@@ -19,6 +19,16 @@ if(!isset($member)) {
 <dl>
   <dt>Email</dt>
   <dd><input type="text" name="member[email]" value="<?php echo h($member->email); ?>" /></dd>
+</dl>
+
+<dl>
+  <dt>Member Type</dt>
+  <dd>
+    <select name="member[member_type]" value="">
+      <option value="m" <?php if($member->member_type === "m") { echo 'selected'; } ?>>Member</option>
+      <option value="a" <?php if($member->member_type === "a") { echo 'selected'; } ?> >Admin</option>
+    </select>
+  </dd>
 </dl>
 
 <dl>

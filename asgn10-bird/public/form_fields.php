@@ -34,5 +34,5 @@ if (!isset($bird)) {
   <dd><textarea name="bird[backyard_tips]" rows="5" cols="50"><?php echo h($bird->backyard_tips); ?></textarea></dd>
 </dl>
 
-<!-- <br>
-<br> -->
+<br>
+<br>
