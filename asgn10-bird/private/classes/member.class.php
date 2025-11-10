@@ -9,14 +9,14 @@ class Member extends DatabaseObject {
   public $first_name;
   public $last_name;
   public $email;
+  public $member_type = 'm';
   public $username;
   public $password;
   public $confirm_password;
   protected $hashed_password;
   protected $password_required = true;
-  public $member_type = 'm';
   
-  public function construct($args=[]) {
+  public function __construct($args=[]) {
     $this->first_name = $args['first_name'] ?? '';
     $this->last_name = $args['last_name'] ?? '';
     $this->email = $args['email'] ?? '';
