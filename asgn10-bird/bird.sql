@@ -46,3 +46,16 @@ CREATE TABLE `images` (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Create table members
+DROP TABLE IF EXISTS `members`; 
+CREATE TABLE members (  
+  id INT(11) AUTO_INCREMENT PRIMARY KEY,  
+  first_name VARCHAR(100) NOT NULL,  
+  last_name VARCHAR(100) NOT NULL,  
+  email VARCHAR(255) NOT NULL,  
+  username VARCHAR(255) NOT NULL,  
+  hashed_password VARCHAR(255) NOT NULL,  
+  member_type CHAR(1) NOT NULL DEFAULT 'm' );
+  
+  ALTER TABLE members ADD INDEX index_username (username);
