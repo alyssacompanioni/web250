@@ -1,20 +1,23 @@
-<?php 
+<?php
 
-class Session {
+class Session
+{
 
   private $member_id;
   public $username;
   private $last_login;
 
-  public const MAX_LOGIN_AGE = 60*60*24;
+  public const MAX_LOGIN_AGE = 60 * 60 * 24;
 
-  public function __construct() {
+  public function __construct()
+  {
     session_start();
     $this->check_stored_login();
   }
-  
-  public function login($member) {
-    if($member) {
+
+  public function login($member)
+  {
+    if ($member) {
       session_regenerate_id();
       $this->member_id = $_SESSION['member_id'] = $member->id;
       $this->username = $_SESSION['username'] = $member->username;
@@ -23,11 +26,13 @@ class Session {
     return true;
   }
 
-  public function is_logged_in() {
-    return isset($this->member) && $this->last_login_is_recent();
+  public function is_logged_in()
+  {
+    return isset($this->member_id) && $this->last_login_is_recent();
   }
 
-  public function logout() {
+  public function logout()
+  {
     unset($_SESSION['member_id']);
     unset($_SESSION['username']);
     unset($_SESSION['last_login']);
@@ -37,26 +42,29 @@ class Session {
     return true;
   }
 
-  private function check_stored_login() {
-    if(isset($_SESSION['member_id'])) {
+  private function check_stored_login()
+  {
+    if (isset($_SESSION['member_id'])) {
       $this->member_id = $_SESSION['member_id'];
       $this->username = $_SESSION['username'];
       $this->last_login = $_SESSION['last_login'];
     }
   }
-  
-  private function last_login_is_recent() {
-    if(!isset($this->last_login)) {
+
+  private function last_login_is_recent()
+  {
+    if (!isset($this->last_login)) {
       return false;
-    } elseif(($this->last_login + self::MAX_LOGIN_AGE) < time()) {
+    } elseif (($this->last_login + self::MAX_LOGIN_AGE) < time()) {
       return false;
     } else {
       return true;
     }
   }
 
-  public function message($msg="") {
-    if(!empty($msg)) {
+  public function message($msg = "")
+  {
+    if (!empty($msg)) {
       // Then this is a "set" message
       $_SESSION['message'] = $msg;
       return true;
@@ -66,12 +74,8 @@ class Session {
     }
   }
 
-  public function clear_message() {
+  public function clear_message()
+  {
     unset($_SESSION['message']);
   }
-
 }
-
-
-
-?>
