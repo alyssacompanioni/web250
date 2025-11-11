@@ -3,7 +3,7 @@ require_login();
 
 $id = $_GET['id'] ?? false;
 if (!$id) {
-  redirect_to('birds.php');
+  redirect_to('index.php');
 }
 
 $bird = Bird::find_by_id($id);
@@ -12,7 +12,7 @@ $page_title = 'Detail: ' . $bird->name();
 include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="main">
-  <a href="birds.php">Back to Bird Sightings</a>
+  <a href="index.php">Back to Bird Sightings</a>
 
   <div class="detail">
     <dl>

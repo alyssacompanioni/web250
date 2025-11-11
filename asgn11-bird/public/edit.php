@@ -44,7 +44,7 @@ if (is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/birds.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="birdEdit">
     <h1>Edit Bird: <?php echo $bird->name(); ?></h1>

@@ -4,13 +4,13 @@ require_once('../private/initialize.php');
 require_login();
 
 if(!isset($_GET['id'])) {
-  redirect_to(url_for('/birds.php'));
+  redirect_to(url_for('/index.php'));
 }
 
 $id = $_GET['id'];
 $bird = Bird::find_by_id($id);
 if ($bird == false) {
-  redirect_to(url_for('/birds.php'));
+  redirect_to(url_for('/index.php'));
 }
 
 if(is_post_request()) {
@@ -18,7 +18,7 @@ if(is_post_request()) {
   $result = $bird->delete(); 
   
   $session->message('The bird sighting was deleted successfully.');
-  redirect_to(url_for('/birds.php'));
+  redirect_to(url_for('/index.php'));
 
 } else {
   // Display form
@@ -31,7 +31,7 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/birds.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="bird delete">
     <h1>Delete Bird Sighting</h1>
