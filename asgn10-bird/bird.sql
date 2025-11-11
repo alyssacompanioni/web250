@@ -57,5 +57,5 @@ CREATE TABLE members (
   username VARCHAR(255) NOT NULL,  
   hashed_password VARCHAR(255) NOT NULL,  
   member_type CHAR(1) NOT NULL DEFAULT 'm' );
-  
-  ALTER TABLE members ADD INDEX index_username (username);
+
+ ALTER TABLE members ADD INDEX index_username (username);
