@@ -22,7 +22,8 @@
           <li><a href="<?php echo url_for('/logout.php'); ?>">Log Out</a></li>
         <?php } else { ?>
           <li><a href="<?php echo url_for('/login.php'); ?>">Log In</a></li>
-        <?php } ?>
+          <?php } ?>
+        <li><a href="<?php echo url_for('/index.php'); ?>">Home</a></li>
         <li><a href="<?php echo url_for('/about.php'); ?>">About WNC Birds</a></li>
       </ul>
     </navigation>

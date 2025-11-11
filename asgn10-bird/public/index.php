@@ -1,13 +1,9 @@
-<?php 
-  require_once('../private/initialize.php'); 
-  include(SHARED_PATH . '/public_header.php'); 
+<?php
+require_once('../private/initialize.php');
+include(SHARED_PATH . '/public_header.php');
 ?>
 
-  <ul>
-    <li><a href="<?php echo url_for('/birds.php'); ?>">View Our List of WNC Birds</a></li>
-    <li><a href="<?php echo url_for('/about.php'); ?>">About Us</a></li>
-  </ul>
-  <li><a href="<?php echo url_for('/login.php'); ?>">Member Login</a></li>
-  </ul>
+<h2>Home</h2>
+<p>Welcome to WNC Bird Sightings! <a href="<?php echo url_for('/login.php'); ?>">Login</a> to see a list of recent bird sightings from our local members.</p>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
