@@ -27,14 +27,14 @@ if(is_post_request()) {
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/members/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="member new">
     <h1>Create a Member</h1>
 
     <?php echo display_errors($member->errors); ?>
 
-    <form action="<?php echo url_for('/index.php'); ?>" method="post">
+    <form action="<?php echo url_for('/signup.php'); ?>" method="post">
 
       <?php include('members/form_fields.php'); ?>
 
@@ -48,4 +48,3 @@ if(is_post_request()) {
 </div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
-?>
