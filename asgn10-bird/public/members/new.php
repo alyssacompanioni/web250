@@ -12,7 +12,7 @@ if(is_post_request()) {
 
   if($result === true) {
     $new_id = $member->id;
-    $_SESSION['message'] = 'The member was created successfully.';
+    $session->message('The member was created successfully.');
     redirect_to(url_for('/members/show.php?id=' . $new_id));
   } else {
     // show errors

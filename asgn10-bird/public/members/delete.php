@@ -16,7 +16,7 @@ if(is_post_request()) {
 
   // Delete member
   $result = $member->delete();
-  $_SESSION['message'] = 'The member was deleted successfully.';
+  $session->message('The member was deleted successfully.');
   redirect_to(url_for('/members/index.php'));
 
 } else {
