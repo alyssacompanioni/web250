@@ -31,6 +31,22 @@ class Session
     return isset($this->member_id) && $this->last_login_is_recent();
   }
 
+  public function is_admin_logged_in()
+  {
+    if($this->is_logged_in()) {
+      $username = $_SESSION['username'];
+      $member = new Member;
+      $member = $member->find_by_username($username);
+      if($member->member_type === 'a') {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
   public function logout()
   {
     unset($_SESSION['member_id']);
