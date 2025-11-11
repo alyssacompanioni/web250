@@ -16,8 +16,10 @@ $page_title = 'Sightings';
     <th>Conservation Level</th>
     <th>Backyard Tips</th>
     <th>&nbsp;</th>
+    <?php if($session->is_logged_in()) { ?>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
+    <?php } ?>
   </tr>
 
   <?php

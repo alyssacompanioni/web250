@@ -13,17 +13,17 @@
 <body>
 
   <header>
-    <h1>Welcome to WNC Birds!</h1>
+    <h1><a href="<?php echo url_for('/index.php'); ?>">Welcome to WNC Birds!</a></h1>
     <navigation>
       <ul>
         <?php if ($session->is_logged_in()) { ?>
           <li>User: <?php echo $session->username; ?></li>
           <li><a href="<?php echo url_for('/birds.php'); ?>">Bird Sightings</a></li>
           <li><a href="<?php echo url_for('/logout.php'); ?>">Log Out</a></li>
-        <?php } else { ?>
-          <li><a href="<?php echo url_for('/login.php'); ?>">Log In</a></li>
+          <?php } else { ?>
+            <li><a href="<?php echo url_for('/login.php'); ?>">Log In</a></li>
+            <li><a href="<?php echo url_for('/signup.php'); ?>">Sign Up</a></li>
           <?php } ?>
-        <li><a href="<?php echo url_for('/index.php'); ?>">Home</a></li>
         <li><a href="<?php echo url_for('/about.php'); ?>">About WNC Birds</a></li>
       </ul>
     </navigation>
