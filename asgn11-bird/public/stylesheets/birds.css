@@ -25,6 +25,7 @@ header h1 {
 
 header ul {
   list-style-type: none;
+  margin: 0;
 }
 
 table {
