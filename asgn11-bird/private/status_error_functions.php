@@ -8,6 +8,17 @@ function require_login()
   }
 }
 
+function require_admin_login()
+{
+  global $session;
+  if(!$session->is_logged_in()) {
+    redirect_to(url_for('/members/login.php'));
+  } elseif(!$session->is_admin_logged_in()) {
+    $session->message('Only administrators have access to member account pages.');
+    redirect_to(url_for('/index.php'));
+  }
+}
+
 function display_errors($errors = array())
 {
   $output = '';
