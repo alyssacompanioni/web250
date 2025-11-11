@@ -13,7 +13,7 @@
 <body>
 
   <header>
-    <h1>Welcome to WNC Bird Sightings!</h1>
+    <h1>Welcome to WNC Birds!</h1>
     <navigation>
       <ul>
         <?php if ($session->is_logged_in()) { ?>
