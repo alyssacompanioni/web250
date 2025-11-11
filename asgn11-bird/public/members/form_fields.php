@@ -21,15 +21,17 @@ if (!isset($member)) {
   <dd><input type="text" name="member[email]" value="<?php echo h($member->email); ?>" /></dd>
 </dl>
 
-<dl>
-  <dt>Member Type</dt>
-  <dd>
-    <select name="member[member_type]" value="">
-      <option value="m" <?php if($member->member_type === "m") { echo 'selected'; } ?>>Member</option>
-      <option value="a" <?php if($member->member_type === "a") { echo 'selected'; } ?> >Admin</option>
-    </select>
-  </dd>
-</dl>
+<?php if($session->is_admin_logged_in()) { ?> 
+  <dl>
+    <dt>Member Type</dt>
+    <dd>
+      <select name="member[member_type]" value="">
+        <option value="m" <?php if($member->member_type === "m") { echo 'selected'; } ?>>Member</option>
+        <option value="a" <?php if($member->member_type === "a") { echo 'selected'; } ?> >Admin</option>
+      </select>
+    </dd>
+  </dl>
+<?php } ?>
 
 <dl>
   <dt>Username</dt>
